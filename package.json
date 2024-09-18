@@ -1,0 +1,16 @@
+{
+  "name": "aaaaaaaa",
+  "version": "1.0.0",
+  "main": "anidb.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "",
+  "license": "ISC",
+  "description": "",
+  "dependencies": {
+    "request": "^2.88.2",
+    "socks-proxy-agent": "^8.0.4",
+    "xml2js": "^0.6.2"
+  }
+}
