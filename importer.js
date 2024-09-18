@@ -21,6 +21,7 @@ const total_animes = Object.keys(local_information_database['animes']);
     for (let i = 0; i < total_animes.length; i++) {
         id = total_animes[i];
         let anime = await get_information(id);
+        
         console.log(colors.green + 'Title: ' + colors.reset + colors.blue + anime.data.title + colors.reset);
         console.log(colors.green + 'Description: ' + colors.reset + colors.blue + anime.data.description + colors.reset);
         console.log(colors.green + 'Picture: ' + colors.reset + colors.blue + anime.data.picture_jpg + colors.reset);
@@ -51,7 +52,10 @@ function get_information(id) {
             console.log(colors.yellow + 'Title not found! Using the first title found...' + colors.reset);
         }
 
-        anime_data['description'] = anime['description'];
+        var description = anime['description'];
+        description = description.replace(/http[^\s]+\s*\[|\]/g, '');
+
+        anime_data['description'] = description;
         anime_data['picture_jpg'] = anime['picture'];
 
         resolve({status: true, data: anime_data});
